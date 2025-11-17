@@ -16,29 +16,26 @@ public class HomeMenu {
         home.setAlignment(Pos.CENTER);
         home.setPadding(new Insets(60));
 
-        // -------------------- SET BACKGROUND IMAGE --------------------
         Image backgroundImage = new Image("file:/C:/2nd Year - 1st Sem/MemoryMatrix/src/resources/images/background.png");
         BackgroundSize backgroundSize = new BackgroundSize(
-                100, 100, true, true, true, true // cover = true ensures full stretch while keeping aspect ratio
+                100, 100, true, true, true, true 
         );
 
         BackgroundImage background = new BackgroundImage(
                 backgroundImage,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.DEFAULT, // full coverage
+                BackgroundPosition.DEFAULT, 
                 backgroundSize
         );
         home.setBackground(new Background(background));
 
-        // -------------------- CONTENT --------------------
         Label subtitle = new Label("Sharpen your mind — match all the pairs!");
         subtitle.setFont(Font.font("Cambria", 18));
 
         VBox buttons = new VBox(15);
         buttons.setAlignment(Pos.CENTER);
-
-        // Start Game
+        
         Button startButton = new Button("Start Game");
         startButton.setFont(Font.font("Cambria", 20));
         startButton.getStyleClass().add("gradient-btn");
@@ -48,13 +45,12 @@ public class HomeMenu {
             stage.setScene(ThemeSelection.create(stage, game));
         });
 
-        // Levels / Difficulty
         Button levelsButton = new Button("Levels / Difficulty");
         levelsButton.setFont(Font.font("Cambria", 18));
         levelsButton.getStyleClass().add("gradient-btn");
         levelsButton.setOnAction(e -> {
             try {
-                Stage levelStage = new Stage(); // new window for level selection
+                Stage levelStage = new Stage(); 
                 LevelSelection levelSelection = new LevelSelection();
                 levelSelection.start(levelStage);
             } catch (Exception ex) {
@@ -62,8 +58,6 @@ public class HomeMenu {
             }
         });
 
-
-        // About the Game / Mechanics
         Button aboutButton = new Button("About the Game / Mechanics");
         aboutButton.setFont(Font.font("Cambria", 18));
         aboutButton.getStyleClass().add("gradient-btn");
@@ -102,8 +96,6 @@ public class HomeMenu {
             popup.show();
         });
 
-
-        // Exit
         Button exitButton = new Button("Exit");
         exitButton.setFont(Font.font("Cambria", 16));
         exitButton.getStyleClass().add("gradient-btn");
@@ -116,7 +108,6 @@ public class HomeMenu {
                 exitButton
         );
 
-        // -------------------- Scores --------------------
         Label scoresLabel = new Label("Scores: " + game.totalScore);
         scoresLabel.setFont(Font.font("Cambria", 16));
         scoresLabel.setPadding(new Insets(20, 0, 0, 0));

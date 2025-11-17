@@ -15,7 +15,7 @@ public class LevelSelection extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        levelManager.loadProgress(); // load unlocked levels
+        levelManager.loadProgress(); 
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -39,39 +39,32 @@ public class LevelSelection extends Application {
 
                 levelButton.setOnAction(e -> {
 
-                    // === Confirmation dialog ===
                     javafx.scene.control.Alert confirm = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
                     confirm.setTitle("Play Level");
                     confirm.setHeaderText("Start \"" + levelName + "\"?");
                     confirm.setContentText("Do you want to play this level now?");
-
-                    // Show and wait for user choice
+                    
                     var result = confirm.showAndWait();
 
                     if (result.isPresent() && result.get() == javafx.scene.control.ButtonType.OK) {
                         System.out.println(levelName + " selected!");
 
-                        // TODO: Call MemoryGame to start this level
-                        // game.loadLevel(levelName);
-
-                        // Example progression: unlock next level after completion
                         if (index + 1 < allLevels.length) {
                             levelManager.unlockLevel(allLevels[index + 1]);
                         }
 
-                        // Refresh the grid after unlocking
                         start(primaryStage);
                     }
                 });
 
             } else {
-                // locked level
+     
                 levelButton.setStyle("-fx-background-color: #c0c0c0; -fx-border-color: #7a7a7a; -fx-border-width: 2;");
-                levelButton.setDisable(true); // clicking does nothing
+                levelButton.setDisable(true); 
             }
 
 
-            grid.add(levelButton, i % 3, i / 3); // 3 columns per row
+            grid.add(levelButton, i % 3, i / 3);
         }
 
         Scene scene = new Scene(grid, 650, 400);

@@ -9,7 +9,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class HomeMenu {
-
     public static Scene create(Stage stage, MemoryGame game) {
 
         VBox home = new VBox(25);

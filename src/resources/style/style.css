@@ -1,0 +1,70 @@
+/* === styles.css for MemoryGame.java === */
+
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #fafafa, #e0e0e0);
+    -fx-font-family: "Cambria", "Times New Roman";
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.stat {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+}
+
+.hint {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+}
+
+.control-btn {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 6 14 6 14;
+    -fx-background-radius: 6;
+}
+
+.control-btn:hover {
+    -fx-background-color: #1976d2;
+}
+
+.card {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+.card-back {
+    -fx-background-color: linear-gradient(to bottom, #90caf9, #42a5f5);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #1976d2;
+    -fx-border-width: 2;
+}
+
+.card-front {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-size: 36px;
+}
+
+.card-matched {
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(three-pass-box, rgba(76,175,80,0.7), 15, 0, 0, 0);
+}
+
+.level-button {
+    -fx-background-color: linear-gradient(to right, #4A90E2, #8E44AD);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+}
+
+.level-button:hover {
+    -fx-background-color: linear-gradient(to right, #6BB6FF, #A76BFF);
+    -fx-cursor: hand;
+}

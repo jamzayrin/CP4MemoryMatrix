@@ -20,7 +20,7 @@ public class MemoryGame extends Application {
     private int COLS = 4;
     private int ROWS = 4;
     private int CARD_COUNT = COLS * ROWS;
-    public int totalScore = 0;  // accumulates scores from all levels
+    public int totalScore = 0; 
 
 
     private Card firstSelected = null;
@@ -214,7 +214,7 @@ public class MemoryGame extends Application {
                 firstSelected.pop();
                 secondSelected.pop();
 
-                // Update the match count immediately
+           
                 updateStats();
 
                 if (matchesFound == CARD_COUNT / 2) Platform.runLater(this::showLevelComplete);
@@ -324,7 +324,7 @@ public class MemoryGame extends Application {
         accuracyBonus = Math.max(0, 200 - (mismatches * 12));
         score = basePoints + timeBonus + accuracyBonus;
 
-        totalScore += score; // add current level's score to total
+        totalScore += score; 
     }
 
 

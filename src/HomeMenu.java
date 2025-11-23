@@ -9,22 +9,23 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class HomeMenu {
+
     public static Scene create(Stage stage, MemoryGame game) {
 
         VBox home = new VBox(25);
         home.setAlignment(Pos.CENTER);
         home.setPadding(new Insets(60));
 
-        Image backgroundImage = new Image("file:/C:/2nd Year - 1st Sem/MemoryMatrix/src/resources/images/background.png");
+        Image backgroundImage = new Image("/images/background.png");
         BackgroundSize backgroundSize = new BackgroundSize(
-                100, 100, true, true, true, true 
+                100, 100, true, true, true, true
         );
 
         BackgroundImage background = new BackgroundImage(
                 backgroundImage,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.DEFAULT, 
+                BackgroundPosition.DEFAULT,
                 backgroundSize
         );
         home.setBackground(new Background(background));
@@ -34,7 +35,7 @@ public class HomeMenu {
 
         VBox buttons = new VBox(15);
         buttons.setAlignment(Pos.CENTER);
-        
+
         Button startButton = new Button("Start Game");
         startButton.setFont(Font.font("Cambria", 20));
         startButton.getStyleClass().add("gradient-btn");
@@ -49,13 +50,14 @@ public class HomeMenu {
         levelsButton.getStyleClass().add("gradient-btn");
         levelsButton.setOnAction(e -> {
             try {
-                Stage levelStage = new Stage(); 
+                Stage levelStage = new Stage(); // new window for level selection
                 LevelSelection levelSelection = new LevelSelection();
                 levelSelection.start(levelStage);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         });
+
 
         Button aboutButton = new Button("About the Game / Mechanics");
         aboutButton.setFont(Font.font("Cambria", 18));
@@ -118,7 +120,6 @@ public class HomeMenu {
         home.getChildren().add(card);
 
         Scene scene = new Scene(home, 900, 700);
-        scene.getStylesheets().add("file:/C:/2nd Year - 1st Sem/MemoryMatrix/src/resources/style/style.css");
         return scene;
 
     }

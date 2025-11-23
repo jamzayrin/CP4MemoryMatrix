@@ -3,7 +3,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -15,14 +16,26 @@ public class ThemeSelection {
         themeBox.setAlignment(Pos.CENTER);
         themeBox.setPadding(new Insets(40));
 
+        Image backgroundImage = new Image("/images/themeselectionbg.png");
+        BackgroundSize backgroundSize = new BackgroundSize(
+                100, 100, true, true, true, true
+        );
+
+        BackgroundImage background = new BackgroundImage(
+                backgroundImage,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT, // full coverage
+                backgroundSize
+        );
+        themeBox.setBackground(new Background(background));
+
         Label label = new Label("Select Theme");
-        label.setFont(Font.font("Cambria", 28));
+        label.setFont(Font.font("Cambria", 42));
 
         String[] themes = {
-                "Black and White Icons",
                 "Nature",
                 "Space Exploration",
-                "Holidays",
                 "Art & Paintings"
         };
 
@@ -31,7 +44,7 @@ public class ThemeSelection {
 
         for (String theme : themes) {
             Button b = new Button(theme);
-            b.setFont(Font.font("Cambria", 16));
+            b.setFont(Font.font("Cambria", 20));
             b.setOnAction(e -> {
                 game.selectedTheme = theme;
                 game.startGame(stage);
@@ -43,4 +56,5 @@ public class ThemeSelection {
 
         return new Scene(themeBox, 900, 700);
     }
+
 }
